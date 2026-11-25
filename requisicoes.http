@@ -1,0 +1,44 @@
+### Exemplos de requisições (abra no IntelliJ e clique no ▶ ao lado de cada uma)
+
+### Criar frente
+POST http://localhost:8081/frentes
+Content-Type: application/json
+
+{
+  "codigo": "F-11",
+  "fornecedor": "Fornecedor A",
+  "toneladasDia": 850.0
+}
+
+### Listar todas
+GET http://localhost:8081/frentes
+
+### Listar só as ativas
+GET http://localhost:8081/frentes?status=ATIVA
+
+### Buscar por id
+GET http://localhost:8081/frentes/1
+
+### Atualizar
+PUT http://localhost:8081/frentes/1
+Content-Type: application/json
+
+{
+  "codigo": "F-11",
+  "fornecedor": "Fornecedor B",
+  "toneladasDia": 900.0,
+  "status": "PARADA"
+}
+
+### Excluir
+DELETE http://localhost:8081/frentes/1
+
+### Exemplo de erro de validação (retorna 400)
+POST http://localhost:8081/frentes
+Content-Type: application/json
+
+{
+  "codigo": "72",
+  "fornecedor": "",
+  "toneladasDia": -5
+}
